@@ -1,0 +1,57 @@
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="블로그">
+    <meta property="og:description" content="블로그를 작성해봐요">
+    <meta property="og:image" content="images/og_selectshop.png">
+
+    <style>
+
+        .title{
+            width: 300px;
+            margin: auto;
+        }
+
+        .w-btn-blue {
+            width: 300px;
+            height: 100px;
+            background-color: #6aafe6;
+            color: #d4dfe6;
+            font-size: 50px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px black;
+
+        }
+
+        .btns{
+            width:400px;
+            margin:auto;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class = "btns">
+
+    <h1>나만의 블로그</h1>
+
+    <a href="/api/save/post">
+        <button class="w-btn w-btn-blue" type="button">글쓰러가기</button>
+    </a>
+    <br>
+    <br>
+    <br>
+    <a href="/api/posts">
+        <button class="w-btn w-btn-blue" type="button">글보러가기</button>
+    </a>
+</div>
+
+</body>
+</html>

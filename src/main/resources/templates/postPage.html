@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+<label>제목:</label>
+<p th:text="${post.title}">제목</p>
+<br>
+----------------------------------------
+<br>
+<label>이름:</label>
+<p th:text="${post.name}">이름</p>
+<br>
+----------------------------------------
+<br>
+<label>최근수정:</label>
+<!--<p th:text="${post.modifiedAt}">최근수정</p>-->
+<p th:with="localDateTime=${post.modifiedAt}" th:text="${#temporals.format(localDateTime,'yyyy-MM-dd HH:mm:ss')}">최근수정</p>
+<br>
+----------------------------------------
+<br>
+<label>내용:</label>
+<p th:text="${post.content}">내용</p>
+
+<br>
+<a th:href="@{/api/update/post/{id} (id=${post.id})}">
+    <button class="w-btn w-btn-blue" type="button">수정</button>
+</a>
+<a th:href="@{/api/delete/post/{id} (id=${post.id})}">
+    <button class="w-btn w-btn-blue" type="button">삭제</button>
+</a>
+<br>
+============================댓글=======================================
+<br>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>작성자</th>
+        <th>최근수정</th>
+        <th>내용</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="comment : ${comments}">
+        <td th:text="${comment.name}"></td>
+        <td th:with="localDateTime=${comment.modifiedAt}" th:text="${#temporals.format(localDateTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td th:text="${comment.content}"></td>
+        <td><a th:href="@{/update/comment/{id} (id=${comment.id})}">수정</a></td>
+        <td><a th:href="@{/delete/comment/{id} (id=${comment.id})}">삭제</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/api/newComment/post/{id} (id=${post.id})}">
+    <button type="button">댓글쓰기</button>
+</a>
+
+<br>
+<br>
+
+<a href="/">
+    <button type="button">메인으로</button>
+</a>
+
+
+</body>
+</html>

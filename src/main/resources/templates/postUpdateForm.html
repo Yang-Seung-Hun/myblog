@@ -1,0 +1,82 @@
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <style>
+        form {
+            margin: 0 auto;
+            width: 400px;
+            height: 35em;
+            padding: 1em;
+            border: 1px solid #CCC;
+            border-radius: 1em;
+        }
+
+        form div + div {
+            margin-top: 2em;
+        }
+
+        label {
+            display: inline-block;
+            width: 90px;
+            text-align: right;
+        }
+
+        input, textarea {
+            font: 1em sans-serif;
+            width: 300px;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 1px solid #999;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #000;
+        }
+
+        input{
+            height: 2em;
+        }
+
+        textarea {
+            vertical-align: top;
+            height: 20em;
+            resize: vertical;
+        }
+
+        .button {
+            margin: auto;
+            width: 200px;
+            height: 30px;
+            display:block;
+        }
+    </style>
+
+</head>
+<body>
+
+<form role="form" action="#" th:object="${requestForm}" method="post">
+
+    <div class="form-group">
+        <label th:for="title">제목</label>
+        <input type="text" th:field="*{title}" class="form-control" placeholder="제목을 입력하세요">
+    </div>
+
+    <div class="form-group">
+        <label th:for="name">작성자이름</label>
+        <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력하세요">
+    </div>
+
+    <div class="form-group">
+        <label th:for="content">내용:</label>
+        <textarea th:field="*{content}" class="form-control" placeholder="내용을 입력하세요"></textarea>
+    </div>
+
+    <div>
+        <button type="submit" class="button">등록하기</button>
+    </div>
+</form>
+
+</body>
+</html>
